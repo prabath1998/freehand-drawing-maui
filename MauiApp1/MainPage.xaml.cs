@@ -14,14 +14,17 @@
 
         private void _graphicsView_StartInteraction(object sender, TouchEventArgs e)
         {
-            var touchPoint = e.Touches[0];  
-            _freeHandDrawable.setTouchPoint(touchPoint);
+            var touchPoint = e.Touches[0];
+            //_freeHandDrawable.setTouchPoint(touchPoint);
+            _freeHandDrawable.AddTouchPoint(touchPoint);
             _graphicsView.Invalidate();
         }
 
         private void _graphicsView_DragInteraction(object sender, TouchEventArgs e)
         {
-
+            var touchPoint = e.Touches[0];
+            _freeHandDrawable.AddTouchPoint(touchPoint);
+            _graphicsView.Invalidate();
         }
 
         private void _graphicsView_EndInteraction(object sender, TouchEventArgs e)
